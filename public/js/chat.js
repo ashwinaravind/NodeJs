@@ -7,7 +7,7 @@ $(function(){
 
 	// connect to the socket
 	var socket = io();
-	
+
 	// variables which hold the data for each person
 	var name = "",
 		email = "",

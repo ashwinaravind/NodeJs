@@ -24,12 +24,13 @@ module.exports = function(app,io){
 
 		// Redirect to the random room
 		res.redirect('/chat/'+id);
+		console.log('redirect success');
 	});
 
 	app.get('/chat/:id', function(req,res){
-
-		// Render the chant.html view
+	//			// Render the chant.html view
 		res.render('chat');
+	
 	});
 
 	// Initialize a new socket.io application, named 'chat'
@@ -42,6 +43,7 @@ module.exports = function(app,io){
 
 			var room = findClientsSocket(io,data);
 			if(room.length === 0 ) {
+				console.log(room.length);
 
 				socket.emit('peopleinchat', {number: 0});
 			}
@@ -63,7 +65,7 @@ module.exports = function(app,io){
 		// When the client emits 'login', save his name and avatar,
 		// and add them to the room
 		socket.on('login', function(data) {
-
+			
 			var room = findClientsSocket(io, data.id);
 			// Only two people per room are allowed
 			if (room.length < 2) {
@@ -142,7 +144,8 @@ function findClientsSocket(io,roomId, namespace) {
 
 	if (ns) {
 		for (var id in ns.connected) {
-			if(roomId) {
+			console.log('found soc');
+						if(roomId) {
 				var index = ns.connected[id].rooms.indexOf(roomId) ;
 				if(index !== -1) {
 					res.push(ns.connected[id]);
