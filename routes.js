@@ -43,9 +43,11 @@ console.log('route 1');
 		// number of people in this chat room
 
 		socket.on('load',function(data){
-
+		console.log('looking fo soc');
 			var room = findClientsSocket(io,data);
 			if(room.length === 0 ) {
+				
+					console.log('room length 0');
 				console.log(room.length);
 
 				socket.emit('peopleinchat', {number: 0});
