@@ -1,12 +1,14 @@
 // This file is executed in the browser, when people visit /chat/<random id>
 
 $(function(){
-
+console.log('chat started');
 	// getting the id of the room from the url
 	var id = Number(window.location.pathname.match(/\/chat\/(\d+)$/)[1]);
 
 	// connect to the socket
 	var socket = io.connect();
+	
+console.log('connected');
 
 	// variables which hold the data for each person
 	var name = "",
@@ -263,7 +265,7 @@ $(function(){
 	function showMessage(status,data){
 
 		if(status === "connected"){
-
+			console.log('onconnect suc');
 			section.children().css('display', 'none');
 			onConnect.fadeIn(1200);
 		}
@@ -275,6 +277,7 @@ $(function(){
 
 			onConnect.fadeOut(1200, function(){
 				inviteSomebody.fadeIn(1200);
+				console.log('invite');
 			});
 		}
 

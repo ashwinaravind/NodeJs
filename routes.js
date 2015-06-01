@@ -5,16 +5,18 @@
 // Use the gravatar module, to turn email addresses into avatar images:
 
 var gravatar = require('gravatar');
+console.log('route start');
 
 // Export a function, so that we can pass 
 // the app and io instances from the app.js file:
 
 module.exports = function(app,io){
-
+console.log('route 1');
 	app.get('/', function(req, res){
 
 		// Render views/home.html
 		res.render('home');
+		console.log('render home');
 	});
 
 	app.get('/create', function(req,res){
@@ -30,6 +32,7 @@ module.exports = function(app,io){
 	app.get('/chat/:id', function(req,res){
 	//			// Render the chant.html view
 		res.render('chat');
+		console.log('render chat');
 	
 	});
 
@@ -157,6 +160,10 @@ function findClientsSocket(io,roomId, namespace) {
 		}
 	}
 	return res;
+	
+	
+	console.log('route done');
+
 }
 
 

@@ -2,6 +2,7 @@
 // It is required by app.js
 
 var express = require('express');
+console.log('config start');
 
 module.exports = function(app, io){
 
@@ -16,5 +17,7 @@ module.exports = function(app, io){
 
 	// Make the files in the public folder available to the world
 	app.use(express.static(__dirname + '/public'));
+	
+	console.log('config done');
 
 };
