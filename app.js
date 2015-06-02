@@ -3,7 +3,7 @@
 // and listens on a port. Start the application by running
 // 'node app.js' in your terminal
 
-
+var pg = require('pg');
 var express = require('express'),
 	app = express();
 
@@ -21,5 +21,10 @@ var io = require('socket.io').listen(app.listen(port));
 
 require('./config')(app, io);
 require('./routes')(app, io);
+var pg = require('pg');
+var conString = "postgres://YourUserName:YourPassword@localhost:5432/YourDatabase";
 
+var client = new pg.Client(conString);
+client.connect();
+console.log('Your application is running on http://localhost:' + port);
 console.log('Your application is running on http://localhost:' + port);
