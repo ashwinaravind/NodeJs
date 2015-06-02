@@ -30,7 +30,7 @@ dataclinet.query('SELECT * FROM test', function(err, result) {
       if (err)
        { console.error(err); response.send("Error " + err); }
       else
-       { response.send(result.rows); }
+       { console.log(result.rows); }
 });
 console.log('Your application is running on http://localhost:' + port);
 console.log('Your application is running on http://localhost:' + port);
