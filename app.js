@@ -22,9 +22,8 @@ var io = require('socket.io').listen(app.listen(port));
 require('./config')(app, io);
 require('./routes')(app, io);
 var pg = require('pg');
-var conString = "postgres://YourUserName:YourPassword@localhost:5432/YourDatabase";
-
-var client = new pg.Client(conString);
-client.connect();
+var conString = "postgres://otadthilhxfiqv:sVgqucfFBBijtv9fFKaEAGnAIa@ec2-54-163-238-96.compute-1.amazonaws.com:5432/d59eb19fu1hs81";
+var dataclinet = new pg.Client(conString);
+dataclinet.connect();
 console.log('Your application is running on http://localhost:' + port);
 console.log('Your application is running on http://localhost:' + port);
