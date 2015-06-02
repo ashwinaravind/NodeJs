@@ -63,5 +63,7 @@ var query = dataclinet.query("select * from test;");
 			console.log(result.rows);
 	
         });	
+		
+		console.log('modified');
 console.log('Your application is running on http://localhost:' + port);
 console.log('Your application is running on http://localhost:' + port);
